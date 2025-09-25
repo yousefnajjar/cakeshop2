@@ -26,15 +26,24 @@ const Gallery = () => {
     fetchData()
   }, [])
 
+  // Helper function to create URL-friendly slug from cake name
+  const createSlug = (name: string) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9 -]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single
+  }
+
   return (
     <section id='menu' className='scroll-mt-20'>
       <div className='container'>
-    <div className='text-center'>
-  <p className='text-primary text-lg font-normal mb-3 tracking-widest uppercase'>
-    Our Cakes
-  </p>
-  <h2>Discover Our Sweet Creations</h2>
-</div>
+        <div className='text-center'>
+          <p className='text-primary text-lg font-normal mb-3 tracking-widest uppercase'>
+            Our Cakes
+          </p>
+          <h2>Discover Our Sweet Creations</h2>
+        </div>
         <div className='my-16 px-6'>
           <Masonry
             breakpointCols={{ default: 3, 700: 2, 500: 1 }}
@@ -65,7 +74,7 @@ const Gallery = () => {
                         {item.price}
                       </p>
                       <Link
-                        href='/cakes' // Link to individual cake page or details
+                        href={`/cakes/${createSlug(item.name)}`} // Link to individual cake details
                         className='text-white rounded-full bg-primary border duration-300 border-primary py-2 lg:px-6 md:px-4 px-3 hover:bg-primary/40 hover:backdrop-blur-xs md:text-base text-sm'
                       >
                         Learn More

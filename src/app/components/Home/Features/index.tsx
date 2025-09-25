@@ -61,7 +61,7 @@ const Features = () => {
                   </div>
                   <h3
                     id={`feature-${i}-heading`}
-                    className='text-2xl text-black font-semibold text-center mt-20'
+                    className='text-2xl text-black font-semibold text-center mt-5'
                   >
                     {items.heading}
                   </h3>

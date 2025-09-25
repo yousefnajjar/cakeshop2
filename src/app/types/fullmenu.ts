@@ -3,5 +3,8 @@ export type FullMenuType = {
   price: string;
   image: string;
   description: string;
-  type: string; // Added for filtering
+  type: string;
+  rating?: number;
+  detailedDescription?: string;
+  features?: string[];
 };
