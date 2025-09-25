@@ -126,12 +126,7 @@ const Footer: FC = () => {
         </div>
         <div className='border-t border-grey/15 py-5 flex flex-col sm:flex-row justify-between sm:items-center gap-5'>
           <p className='text-sm text-black/70'>
-            @2025 - Chef's kitchen. All Rights Reserved by{' '}
-            <Link
-              href='https://getnextjstemplates.com/'
-              className='hover:text-primary hover:underline'>
-              GetNextjsTemplates
-            </Link>
+            @2025 - Naji Cake. All Rights Reserved by{' '}
           </p>
 
           <div className=''>

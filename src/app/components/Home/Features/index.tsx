@@ -1,9 +1,7 @@
 'use client'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Icon } from '@iconify/react'
-import { useEffect, useState } from 'react'
 import { FeaturesType } from '@/app/types/features'
+import { useEffect, useState } from 'react'
 import FeaturesSkeleton from '../../Skeleton/Features'
 
 const Features = () => {
@@ -18,7 +16,7 @@ const Features = () => {
         const data = await res.json()
         setFeatures(data.FeaturesData)
       } catch (error) {
-        console.error('Error fetching services:', error)
+        console.error('Error fetching online cake shop features:', error)
       } finally {
         setLoading(false)
       }
@@ -27,40 +25,50 @@ const Features = () => {
   }, [])
 
   return (
-    <section id='features'>
-      <div className='container'>
-        <div className='text-center mb-14'>
+    <section id='online-cake-shop-features' className='py-16 bg-white' aria-labelledby='features-heading'>
+      <div className='container mx-auto px-4'>
+        <header className='text-center mb-14'>
           <p className='text-primary text-lg font-normal tracking-widest uppercase'>
-            Why Choose Us
+            Why Our Online Cake Shop
           </p>
-          <h2 className='font-semibold lg:max-w-60% mx-auto mt-3'>
-            Experience More Than Just a Meal
+          <h2 id='features-heading' className='font-semibold text-3xl md:text-4xl lg:max-w-3xl mx-auto mt-3'>
+            Order Handcrafted Cakes Online with Ease
           </h2>
-        </div>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-y-28 gap-x-6 mt-24'>
+          <p className='text-base text-gray-600 mt-4 max-w-2xl mx-auto'>
+            Shop our artisanal cakes from anywhere, with custom designs, premium ingredients, and seamless nationwide delivery.
+          </p>
+        </header>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-6 mt-12'>
           {loading
             ? Array.from({ length: 4 }).map((_, i) => (
                 <FeaturesSkeleton key={i} />
               ))
             : features.map((items, i) => (
-                <div
+                <article
                   key={i}
-                  className='p-8 relative rounded-3xl bg-linear-to-b from-primary/10 to-white shadow-md hover:scale-105 transition duration-300 ease-in-out hover:cursor-pointer'>
-                  <div className='rounded-full flex justify-center absolute -top-[50%] sm:top-[-40%] md:top-[-55%] lg:top-[-35%] left-[0%]'>
-                    <Image
+                  className='p-8 relative rounded-3xl bg-gradient-to-b from-primary/10 to-white shadow-lg hover:scale-105 transition duration-300 ease-in-out hover:cursor-pointer'
+                  aria-labelledby={`feature-${i}-heading`}
+                >
+                  <div className='rounded-full flex justify-center items-center absolute -top-[50%] sm:top-[-40%] md:top-[-55%] lg:top-[-35%] left-0 w-full'>
+                    {/* <Image
                       src={items.imgSrc}
-                      alt={items.imgSrc}
+                      alt={items.altText || `Image of ${items.heading}`}
                       width={510}
-                      height={10}
-                    />
+                      height={510}
+                      className='object-cover rounded-full'
+                      loading='lazy'
+                    /> */}
                   </div>
-                  <p className='text-2xl text-black font-semibold text-center mt-16'>
+                  <h3
+                    id={`feature-${i}-heading`}
+                    className='text-2xl text-black font-semibold text-center mt-20'
+                  >
                     {items.heading}
-                  </p>
-                  <p className='text-base font-normal text-black/50 text-center mt-2 leading-6'>
+                  </h3>
+                  <p className='text-base font-normal text-gray-600 text-center mt-2 leading-6'>
                     {items.subheading}
                   </p>
-                </div>
+                </article>
               ))}
         </div>
       </div>

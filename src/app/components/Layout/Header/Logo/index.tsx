@@ -12,7 +12,7 @@ const Logo: React.FC = () => {
         className='w-fit'
         quality={100}
       />
-      <p className='text-black text-2xl font-semibold '>Chef's Kitchen.</p>
+      <p className='text-black text-2xl font-semibold '>Naji Cake.</p>
     </Link>
   )
 }
