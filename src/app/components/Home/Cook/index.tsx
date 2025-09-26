@@ -9,11 +9,10 @@ const About = () => {
         <div className='grid grid-cols-1 lg:grid-cols-12 my-16 space-x-5'>
           <div className='lg:col-span-6 flex lg:justify-start justify-center'>
             <Image
-            src='/images/cake webp/about/Fresh Ingredients.webp'
+              src='/images/cake webp/about/Fresh Ingredients.webp'
               alt='Baker decorating a custom cake'
-              width={636}
-              height={808}
-              loading='lazy'
+              width={500}
+              height={500}
             />
           </div>
           <div className='lg:col-span-6 flex flex-col justify-center items-center lg:items-start'>
@@ -33,7 +32,7 @@ const About = () => {
               className='text-xl font-medium rounded-full text-white py-3 px-8 duration-300 bg-primary w-fit border border-primary hover:bg-transparent hover:text-primary hover:cursor-pointer'
               aria-label='Learn more about our online cake shop'
             >
-+1(909) 235-9814
+             +1(909) 235-9814
             </button>
           </div>
         </div>
