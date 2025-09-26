@@ -90,15 +90,6 @@ const Footer: FC = () => {
           </div>
           <div className='col-span-2 sm:col-span-6 md:col-span-2'>
             <div className='flex flex-col gap-5'>
-              <div className='flex'>
-                <Icon
-                  icon='solar:point-on-map-perspective-bold'
-                  className='text-primary text-3xl lg:text-2xl inline-block me-2'
-                />
-                <p className='text-black text-base'>
-                  925 Filbert Street Pennsylvania 18072
-                </p>
-              </div>
               <Link href='tel:+1(909) 235-9814'>
                 <div className='flex'>
                   <Icon
