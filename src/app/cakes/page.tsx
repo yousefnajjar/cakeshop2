@@ -81,43 +81,55 @@ export default function CakesPage() {
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {fullMenu.map((cake, index) => (
-            <Link
-              key={index}
-              href={`/cakes/${createSlug(cake.name)}`}
-              className="block bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="relative overflow-hidden">
-                <Image
-                  src={cake.image}
-                  alt={cake.name}
-                  width={400}
-                  height={300}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-6">
-                <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
-                  {cake.name}
-                </h2>
-                <p className="text-2xl font-bold text-primary">{cake.price}</p>
-                <div className="mt-4 flex items-center text-sm text-gray-500">
-                  <span>View Details</span>
-                  <svg 
-                    className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+  {fullMenu.map((cake, index) => (
+    <Link
+      key={index}
+      href={`/cakes/${createSlug(cake.name)}`}
+      className="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+    >
+      {/* Image */}
+      <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-64 xl:h-72 flex-shrink-0 overflow-hidden">
+        <Image
+          src={cake.image}
+          alt={cake.name}
+          fill
+          style={{ objectFit: 'cover' }}
+          className="group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+
+      {/* Content */}
+      <div className="p-4 sm:p-6 flex flex-col flex-1 justify-between">
+        <div>
+          <h2 className="text-gray-600 text-sm leading-relaxed font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
+            {cake.name}
+          </h2>
+          <p className="text-gray-600 text-sm leading-relaxed font-bold">{cake.price}</p>
         </div>
+
+        <div className="mt-4 flex items-center text-gray-600 text-sm leading-relaxed">
+          <span>View Details</span>
+          <svg
+            className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
+
       )}
 
       {/* Back to Home */}
