@@ -92,7 +92,7 @@ const FooterLinkData: FooterLinkType[] = [
     rating: 4.9,
     detailedDescription: "Indulge in our exquisite the secret behind our rich chocolate cake, crafted with the finest ingredients and baked to perfection by our master bakers. Each layer tells a story of flavor, creating a harmonious blend that will transport your taste buds to paradise. Perfect for celebrations, special occasions, or simply treating yourself to something extraordinary.",
     features: [
-      "Fresh ingredients daily",
+      "Fresh ingredients daily 1",
       "Handcrafted with love",
       "Custom sizes available",
       "Perfect for celebrations"
@@ -107,7 +107,7 @@ const FooterLinkData: FooterLinkType[] = [
     rating: 4.9,
     detailedDescription: "Indulge in our exquisite top 5 birthday cake designs of 2025, crafted with the finest ingredients and baked to perfection by our master bakers. Each layer tells a story of flavor, creating a harmonious blend that will transport your taste buds to paradise. Perfect for celebrations, special occasions, or simply treating yourself to something extraordinary.",
     features: [
-      "Fresh ingredients daily",
+      "Fresh ingredients daily 2 ",
       "Handcrafted with love",
       "Custom sizes available",
       "Perfect for celebrations"
@@ -122,7 +122,7 @@ const FooterLinkData: FooterLinkType[] = [
     rating: 4.9,
     detailedDescription: "Indulge in our exquisite why our new york cheesecake is a must-try, crafted with the finest ingredients and baked to perfection by our master bakers. Each layer tells a story of flavor, creating a harmonious blend that will transport your taste buds to paradise. Perfect for celebrations, special occasions, or simply treating yourself to something extraordinary.",
     features: [
-      "Fresh ingredients daily",
+      "Fresh ingredients daily 3",
       "Handcrafted with love",
       "Custom sizes available",
       "Perfect for celebrations"
