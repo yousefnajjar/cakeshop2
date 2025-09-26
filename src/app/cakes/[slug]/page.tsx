@@ -119,13 +119,14 @@ export default function CakeDetailPage() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-16">
       {/* Image */}
       <div className="relative w-full">
-        <Image
-          src={cake.image}
-          alt={cake.name}
-          fill
-          className="object-cover rounded-2xl"
-          priority
-        />
+       <Image
+  src={cake.image}
+  alt={cake.name}
+  width={600}
+  height={400}
+  className="w-full h-auto rounded-2xl object-cover"
+  priority
+/>
       </div>
 
       {/* Details */}

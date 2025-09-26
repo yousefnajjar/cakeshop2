@@ -68,35 +68,55 @@ const Header: React.FC = () => {
       }`}>
       <div>
         <div className='container flex items-center justify-between'>
-          <div>
-            <Logo />
-          </div>
-          <nav className='hidden lg:flex grow items-center gap-4 xl:gap-6  justify-center'>
-            {headerLink.map((item, index) => (
-              <HeaderLink key={index} item={item} />
-            ))}
-          </nav>
-          <div className='flex items-center gap-2 lg:gap-3'>
-            <Link
-              href='#'
-              className='text-lg font-medium hover:text-primary hidden xl:block'>
-              <Icon
-                icon='solar:phone-bold'
-                className='text-primary text-3xl lg:text-2xl inline-block me-2'
-              />
-              +1(909) 235-9814
-            </Link>
-        
-            <button
-              onClick={() => setNavbarOpen(!navbarOpen)}
-              className='block lg:hidden p-2 rounded-lg'
-              aria-label='Toggle mobile menu'>
-              <span className='block w-6 h-0.5 bg-black'></span>
-              <span className='block w-6 h-0.5 bg-black mt-1.5'></span>
-              <span className='block w-6 h-0.5 bg-black mt-1.5'></span>
-            </button>
-          </div>
-        </div>
+  <div>
+    <Logo />
+  </div>
+
+  {/* Desktop nav */}
+  <nav className='hidden lg:flex grow items-center gap-4 xl:gap-6 justify-center'>
+    {headerLink.map((item, index) => (
+      <HeaderLink key={index} item={item} />
+    ))}
+  </nav>
+
+  {/* Call & Email */}
+  <div className='flex items-center gap-6'> {/* gap adds space between phone & email */}
+    <Link
+      href="tel:+19092359814"
+      className='text-lg font-medium hover:text-primary hidden xl:flex items-center'
+    >
+      <Icon
+        icon='solar:phone-bold'
+        className='text-primary text-3xl lg:text-2xl inline-block me-2'
+      />
+      +1(909) 235-9814
+    </Link>
+
+    <Link
+      href="mailto:info@gmail.com"
+      className='text-lg font-medium hover:text-primary hidden xl:flex items-center'
+      aria-label='Send email to info@gmail.com'
+    >
+      <Icon
+        icon='solar:mailbox-bold'
+        className='text-primary text-3xl lg:text-2xl inline-block me-2'
+      />
+      info@gmail.com
+    </Link>
+
+    {/* Mobile menu toggle */}
+    <button
+      onClick={() => setNavbarOpen(!navbarOpen)}
+      className='block lg:hidden p-2 rounded-lg'
+      aria-label='Toggle mobile menu'
+    >
+      <span className='block w-6 h-0.5 bg-black'></span>
+      <span className='block w-6 h-0.5 bg-black mt-1.5'></span>
+      <span className='block w-6 h-0.5 bg-black mt-1.5'></span>
+    </button>
+  </div>
+</div>
+
         {navbarOpen && (
           <div className='fixed top-0 left-0 w-full h-full bg-black/50 z-40' />
         )}
@@ -123,7 +143,7 @@ const Header: React.FC = () => {
             </button>
           </div>
           <Link
-            href='#'
+             href="tel:+19092359814"
             className='text-lg font-medium hover:text-primary block md:hidden mt-6 p-4'>
             <Icon
               icon='solar:phone-bold'
@@ -131,6 +151,17 @@ const Header: React.FC = () => {
             />
             +1(909) 235-9814
           </Link>
+
+         <Link
+            href="mailto:info@gmail.com"
+            className='text-lg font-medium hover:text-primary block md:hidden pt-0 px-4 pb-4'>
+            <Icon
+              icon='solar:mailbox-bold'
+              className='text-primary text-3xl lg:text-2xl inline-block me-2'
+            />
+            info@gmail.com
+        </Link>
+
           <nav className='flex flex-col items-start p-4'>
             {headerLink.map((item, index) => (
               <MobileHeaderLink key={index} item={item} />

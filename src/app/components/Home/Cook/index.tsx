@@ -28,12 +28,13 @@ const About = () => {
             <p className='text-gray-600 text-lg font-normal mb-10 text-start'>
               Whether it’s a birthday, wedding, or just a sweet craving, our artisanal cakes are designed to make every moment special. Shop now for nationwide delivery and exceptional quality.
             </p>
-            <button 
-              className='text-xl font-medium rounded-full text-white py-3 px-8 duration-300 bg-primary w-fit border border-primary hover:bg-transparent hover:text-primary hover:cursor-pointer'
-              aria-label='Learn more about our online cake shop'
-            >
-             +1(909) 235-9814
-            </button>
+          <a
+            href="tel:+19092359814"
+            className='text-xl font-medium rounded-full text-white py-3 px-8 duration-300 bg-primary w-fit border border-primary hover:bg-transparent hover:text-primary hover:cursor-pointer inline-block'
+            aria-label='Call +1(909) 235-9814'
+          >
+            +1 (909) 235-9814
+          </a>
           </div>
         </div>
       </div>

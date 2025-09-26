@@ -1,4 +1,5 @@
 'use client'
+import { Icon } from '@iconify/react/dist/iconify.js'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -21,15 +22,20 @@ const Hero = () => {
                   View Cakes
                 </button>
               </Link>
-              <Link href='/#reserve'>
-                <button className='text-xl border border-primary rounded-full font-medium py-3 px-8 text-primary hover:text-white hover:bg-primary hover:cursor-pointer transition ease-in-out duration-300'>
-+1(909) 235-9814
-                </button>
-              </Link>
+          <Link href="tel:+19092359814">
+            <button className='flex items-center gap-2 text-xl border border-primary rounded-full font-medium py-3 px-8 text-primary hover:text-white hover:bg-primary hover:cursor-pointer transition ease-in-out duration-300'>
+              <Icon
+                icon='solar:phone-bold'
+                className='text-primary text-2xl' 
+              />
+              +1 (909) 235-9814
+            </button>
+          </Link>
+
             </div>
           </div>
           <div className='lg:col-span-6 flex justify-center relative'>
-            <div className='flex bg-white p-2 gap-5 items-center bottom-10 left-10 rounded-xl absolute'>
+            <div className='flex bg-white p-2 gap-5 items-center bottom-1 left-10 rounded-xl absolute'>
               <Image
               src='/images/cake webp/about/Strawberry-Cake-removebg-preview.webp'
                 alt='cake-slice'

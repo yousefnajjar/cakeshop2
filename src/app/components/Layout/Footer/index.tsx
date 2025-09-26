@@ -110,7 +110,7 @@ const Footer: FC = () => {
                   </p>
                 </div>
               </Link>
-              <Link href='/'>
+              <Link href="mailto:info@gmail.com">
                 <div className='flex'>
                   <Icon
                     icon='solar:mailbox-bold'

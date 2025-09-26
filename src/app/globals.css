@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #df6853;
+  --color-primary: #ee8cb8;
   --color-grey: #363636;
 
   --spacing-60\%: 60%;
