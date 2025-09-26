@@ -185,7 +185,7 @@ export default function CakeDetailPage() {
           {/* Action */}
           <div className="space-y-4">
             <button className="w-full bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              🛒 Order Now
+              Call Us
             </button>
           </div>
         </div>
@@ -209,8 +209,8 @@ export default function CakeDetailPage() {
                   <Image
                     src={relatedCake.image}
                     alt={relatedCake.name}
-                    width={300}
-                    height={200}
+                    width={600}
+                    height={500}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>

@@ -16,7 +16,7 @@ const Gallery = () => {
         const res = await fetch('/api/data')
         if (!res.ok) throw new Error('Failed to fetch')
         const data = await res.json()
-        setFullMenu(data.FullMenuData) // Fetch FullMenuData
+        setFullMenu(data.FullMenuData)
       } catch (error) {
         console.error('Error fetching menu:', error)
       } finally {
@@ -26,70 +26,80 @@ const Gallery = () => {
     fetchData()
   }, [])
 
-  // Helper function to create URL-friendly slug from cake name
-  const createSlug = (name: string) => {
-    return name
+  const createSlug = (name: string) =>
+    name
       .toLowerCase()
-      .replace(/[^a-z0-9 -]/g, '') // Remove special characters
-      .replace(/\s+/g, '-') // Replace spaces with hyphens
-      .replace(/-+/g, '-') // Replace multiple hyphens with single
-  }
+      .replace(/[^a-z0-9 -]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
 
   return (
-    <section id='menu' className='scroll-mt-20'>
-      <div className='container'>
-        <div className='text-center'>
-          <p className='text-primary text-lg font-normal mb-3 tracking-widest uppercase'>
+    <section id="menu" className="scroll-mt-20">
+      <div className="container">
+        <div className="text-center">
+          <p className="text-primary text-lg font-normal mb-3 tracking-widest uppercase">
             Our Cakes
           </p>
           <h2>Discover Our Sweet Creations</h2>
         </div>
-        <div className='my-16 px-6'>
+
+        <div className="my-16 px-6">
           <Masonry
             breakpointCols={{ default: 3, 700: 2, 500: 1 }}
-            className='flex gap-6'
-            columnClassName='masonry-column'
+            className="flex gap-6"
+            columnClassName="masonry-column"
           >
-            {loading ? (
-              Array.from({ length: 6 }).map((_, i) => (
-                <GalleryImagesSkeleton key={i} />
-              ))
-            ) : (
-              fullMenu.slice(0, 6).map((item, index) => (
-                <div
-                  key={index}
-                  className='overflow-hidden rounded-3xl mb-6 relative group'
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={600}
-                    height={500}
-                    className='object-cover w-full h-full'
-                  />
-                  <div className='w-full h-full absolute bg-black/40 top-full group-hover:top-0 duration-500 lg:p-12 md:p-8 p-3.5 flex flex-col items-start lg:gap-8 gap-4 justify-end'>
-                    <p className='text-white lg:text-2xl text-xl'>{item.name}</p>
-                    <div className='flex items-center justify-between w-full'>
-                      <p className='text-white lg:text-2xl text-xl'>
-                        {item.price}
-                      </p>
-                      <Link
-                        href={`/cakes/${createSlug(item.name)}`} // Link to individual cake details
-                        className='text-white rounded-full bg-primary border duration-300 border-primary py-2 lg:px-6 md:px-4 px-3 hover:bg-primary/40 hover:backdrop-blur-xs md:text-base text-sm'
-                      >
-                        Learn More
-                      </Link>
+            {loading
+              ? Array.from({ length: 6 }).map((_, i) => (
+                  <GalleryImagesSkeleton key={i} />
+                ))
+              : fullMenu.slice(0, 6).map((cake, index) => (
+                  <Link
+                    key={index}
+                    href={`/cakes/${createSlug(cake.name)}`}
+                    className="block bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 mb-6"
+                  >
+                    <div className="relative overflow-hidden">
+                      <Image
+                        src={cake.image}
+                        alt={cake.name}
+                        width={400}
+                        height={300}
+                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </div>
-                </div>
-              ))
-            )}
+                    <div className="p-6">
+                      <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
+                        {cake.name}
+                      </h2>
+                      <p className="text-2xl font-bold text-primary">{cake.price}</p>
+                      <div className="mt-4 flex items-center text-sm text-gray-500">
+                        <span>View Details</span>
+                        <svg
+                          className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
           </Masonry>
         </div>
-        <div className='flex justify-center'>
+
+        <div className="flex justify-center">
           <Link
-            href='/cakes'
-            className='px-6 py-2 border border-primary rounded-full text-base font-medium text-white bg-primary hover:bg-primary/20 hover:text-primary hover:cursor-pointer transition ease-in-out duration-300'
+            href="/cakes"
+            className="px-6 py-2 border border-primary rounded-full text-base font-medium text-white bg-primary hover:bg-primary/20 hover:text-primary hover:cursor-pointer transition ease-in-out duration-300"
           >
             View All Cakes
           </Link>
